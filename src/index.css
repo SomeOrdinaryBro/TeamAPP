@@ -1,0 +1,65 @@
+@import "tailwindcss";
+
+/* ───────────────────────────────────────────────────────────────────
+   THEME TOKENS
+   To rebrand: change --color-accent (+ the gradient stops in the hero /
+   icon generator) and you're done. Everything references these.
+   ─────────────────────────────────────────────────────────────────── */
+@theme {
+  --color-paper: #FCF8F2;        /* app background — warm white, premium, high-contrast */
+  --color-surface: #FFFFFF;      /* cards */
+  --color-ink: #1B1714;          /* primary text — warm near-black */
+  --color-muted: #6F665C;        /* secondary text */
+  --color-faint: #EFE7DD;        /* subtle fills / pressed states */
+  --color-line: #E7DFD3;         /* hairline borders */
+  --color-accent: #F0492E;       /* the one accent — coral */
+  --color-accent-2: #F7A23B;     /* warm amber, used only for small accents */
+  --color-accent-soft: #FCEAE3;  /* accent tint for chips */
+  --color-backdrop: #E7E1D7;     /* neutral desktop backdrop behind the app column */
+
+  --font-display: "Bricolage Grotesque Variable", ui-sans-serif, system-ui, sans-serif;
+  --font-body: "Hanken Grotesk Variable", ui-sans-serif, system-ui, sans-serif;
+
+  --radius-card: 1.3rem;
+}
+
+:root { color-scheme: light; accent-color: var(--color-accent); }
+
+html { -webkit-text-size-adjust: 100%; }
+
+body {
+  margin: 0;
+  font-family: var(--font-body);
+  color: var(--color-ink);
+  background: var(--color-backdrop);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+* { -webkit-tap-highlight-color: transparent; }
+button { font-family: inherit; }
+
+/* Desktop backdrop atmosphere — two faint brand-color blooms for depth.
+   Hidden behind the full-bleed app column on phones. */
+.app-backdrop {
+  background:
+    radial-gradient(60% 50% at 12% 8%, rgba(240, 73, 46, 0.10), transparent 70%),
+    radial-gradient(55% 45% at 92% 94%, rgba(247, 162, 59, 0.13), transparent 70%),
+    var(--color-backdrop);
+}
+
+/* Fine film grain over the gradient hero for a tactile, premium finish */
+.grain::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.55'/%3E%3C/svg%3E");
+  opacity: 0.1;
+  mix-blend-mode: overlay;
+  pointer-events: none;
+}
+
+/* In-app scroll areas: keep scrollability, hide the bar for an app-like feel */
+.no-scrollbar { scrollbar-width: none; -webkit-overflow-scrolling: touch; }
+.no-scrollbar::-webkit-scrollbar { display: none; }
