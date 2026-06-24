@@ -6,7 +6,7 @@ import { motion } from 'framer-motion'
 export default function ScreenHeader({ title, onBack }) {
   return (
     <header
-      className="shrink-0 sticky top-0 z-20 border-b border-line/70 bg-paper/85 backdrop-blur-md"
+      className="glass-header shrink-0 sticky top-0 z-20"
       style={{ paddingTop: 'max(0.6rem, env(safe-area-inset-top))' }}
     >
       <div className="grid h-14 grid-cols-[1fr_auto_1fr] items-center px-2">
@@ -16,7 +16,7 @@ export default function ScreenHeader({ title, onBack }) {
             onClick={onBack}
             whileTap={{ scale: 0.92 }}
             aria-label="Go back"
-            className="-ml-1 flex h-11 min-w-11 items-center gap-0.5 justify-self-start rounded-xl px-2 text-ink/80 transition-colors active:bg-faint focus:outline-none focus-visible:ring-2 focus-visible:ring-accent/60"
+            className="-ml-1 flex h-11 min-w-11 items-center gap-0.5 justify-self-start rounded-xl px-2 text-ink transition-colors active:bg-white/10 focus:outline-none focus-visible:ring-2 focus-visible:ring-accent/60"
           >
             <ChevronLeft />
             <span className="pr-1 text-[15px] font-semibold">Back</span>

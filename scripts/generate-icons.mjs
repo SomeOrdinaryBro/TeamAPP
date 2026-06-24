@@ -59,9 +59,9 @@ function encodePNG(size, rgba) {
 // ── art ─────────────────────────────────────────────────────────────────────
 const hex = (h) => [parseInt(h.slice(1, 3), 16), parseInt(h.slice(3, 5), 16), parseInt(h.slice(5, 7), 16)]
 const lerp = (a, b, t) => a + (b - a) * t
-const C1 = hex('#FF6B3D')
-const C2 = hex('#F0492E')
-const C3 = hex('#D6324B')
+const C1 = hex('#2563EB') // azure
+const C2 = hex('#1D4ED8') // blue
+const C3 = hex('#6D28D9') // violet
 
 // gradient sampled along the top-left → bottom-right diagonal
 function bg(u, v) {

@@ -59,7 +59,7 @@ export default function Carousel({ mode, onBack }) {
 
   if (list.length === 0) {
     return (
-      <div className="absolute inset-0 flex flex-col bg-paper shadow-[-12px_0_30px_-12px_rgba(27,23,20,0.18)]">
+      <div className="absolute inset-0 flex flex-col">
         <ScreenHeader title={title} onBack={onBack} />
         <Empty />
       </div>
@@ -67,7 +67,7 @@ export default function Carousel({ mode, onBack }) {
   }
 
   return (
-    <div className="absolute inset-0 flex flex-col bg-paper shadow-[-12px_0_30px_-12px_rgba(27,23,20,0.18)]">
+    <div className="absolute inset-0 flex flex-col">
       <ScreenHeader title={title} onBack={onBack} />
 
       {/* Counter — tells people there's more than the one card in front of them */}
@@ -82,7 +82,7 @@ export default function Carousel({ mode, onBack }) {
         <div className="h-full overflow-hidden px-3 py-4" ref={emblaRef}>
           <div className="flex h-full">
             {list.map((p, i) => (
-              <div key={p.id} className="flex h-full min-w-0 flex-[0_0_86%] items-stretch px-2">
+              <div key={p.id} className="flex h-full min-w-0 flex-[0_0_86%] items-center px-2">
                 <DeckCard person={p} variant={mode} isActive={i === selected} />
               </div>
             ))}
@@ -131,8 +131,7 @@ function Arrow({ side, onClick, disabled }) {
       whileTap={disabled ? undefined : { scale: 0.9 }}
       aria-label={isLeft ? 'Previous person' : 'Next person'}
       className={[
-        'absolute top-1/2 z-10 grid h-11 w-11 -translate-y-1/2 place-items-center rounded-full',
-        'bg-surface/90 text-ink shadow-[0_8px_20px_-8px_rgba(27,23,20,0.4)] ring-1 ring-line/70 backdrop-blur',
+        'glass absolute top-1/2 z-10 grid h-11 w-11 -translate-y-1/2 place-items-center rounded-full text-accent',
         'transition-opacity focus:outline-none focus-visible:ring-2 focus-visible:ring-accent/70',
         isLeft ? 'left-2' : 'right-2',
         disabled ? 'pointer-events-none opacity-0' : 'opacity-100',
@@ -155,8 +154,8 @@ function Empty() {
   return (
     <div className="flex flex-1 flex-col items-center justify-center px-8 text-center">
       <div
-        className="mb-4 grid h-14 w-14 place-items-center rounded-2xl text-white shadow-[0_10px_22px_-10px_rgba(240,73,46,0.6)]"
-        style={{ backgroundImage: 'linear-gradient(140deg,#F0492E,#D6324B)' }}
+        className="mb-4 grid h-14 w-14 place-items-center rounded-2xl text-white shadow-[0_12px_28px_-10px_rgba(29,78,216,0.7)]"
+        style={{ backgroundImage: 'linear-gradient(140deg,#2563EB,#6D28D9)' }}
       >
         <BrandMark className="h-7 w-7 text-white" />
       </div>

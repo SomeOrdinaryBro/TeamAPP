@@ -15,14 +15,16 @@ function hash(str) {
   return Math.abs(h)
 }
 
+// Deterministic gradient kept inside the brand's blue→violet band (hues ~212–278)
+// so every avatar stays on-theme — no stray lime/green — while still giving each
+// person a distinct color (which is how the two "SS" people are told apart).
 export function avatarGradient(name) {
-  const hue = hash(name) % 360
-  const hue2 = (hue + 26) % 360
-  return `linear-gradient(135deg, hsl(${hue} 64% 54%), hsl(${hue2} 72% 44%))`
+  const hue = 212 + (hash(name) % 66) // 212 (blue) … 278 (violet)
+  const hue2 = hue + 22
+  return `linear-gradient(140deg, hsl(${hue} 82% 60%), hsl(${hue2} 70% 48%))`
 }
 
-// Honors an optional per-person `color` override (single hue → a soft gradient
-// off that color), else falls back to the deterministic name-based gradient.
+// Honors an optional per-person `color` override, else the name-based gradient.
 export function avatarBackground(person) {
   if (person?.color) return `linear-gradient(140deg, ${person.color}, ${person.color}cc)`
   return avatarGradient(person?.name ?? '')

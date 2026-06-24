@@ -42,18 +42,12 @@ export const app = {
 // NOTE: names transcribed from the shared image. Please double-check spellings,
 // especially the ones flagged with "// verify".
 export const people = [
-  { id: 'arib-razmi', name: 'Arib Razmi' },
-  { id: 'chathuni-anahauda', name: 'Chathuni Anahauda' }, // verify
-  {
-    id: 'daphne-williams',
-    name: 'Daphne Williams',
-    isPresenter: true,
-    strengths: ['Resilience', 'Creativity', 'Determination'],
-  },
+  // ── Presenters ── deck shows them in THIS order: Diwonsha, Shakila,
+  //    Sadhurshana, Sajid (per Sajid). title is ignored on presenter cards.
   {
     id: 'diwonsha-sundaram',
     name: 'Diwonsha Sundaram', // was "Divonshund Sundaram" — corrected per Sajid
-    isPresenter: true, // promoted to presenter, replacing Riza Lahiba
+    isPresenter: true,
     strengths: ['Team Player', 'Creative Thinking', 'Fast Learner'],
   },
   {
@@ -63,23 +57,34 @@ export const people = [
     // Placeholder strengths added at Sajid's request — confirm/replace with real ones.
     strengths: ['Detail-Oriented', 'Collaborative', 'Adaptable'],
   },
-  { id: 'chamodini-sepalika', name: 'Chamodini Sepalika' },
-  {
-    id: 'sajid-sabreen',
-    name: 'Sajid Sabreen',
-    isPresenter: true,
-    // Leadership-focused per Sajid's request — confirm/replace with real ones.
-    strengths: ['Team Leadership', 'Strategic Thinking', 'Clear Communication'],
-  },
-  { id: 'riza-lahiba', name: 'Riza Lahiba' }, // no longer presenting — team member only
-  { id: 'hiruni-piyumika', name: 'Hiruni Piyumika' },
-  { id: 'nadarajah-thamilchelvi', name: 'Nadarajah Thamilchelvi' },
   {
     id: 'sadhurshana-chandrasegaram',
     name: 'Sadhurshana Chandrasegaram', // spelling per Sajid (was "Sadhurstana")
     isPresenter: true,
     strengths: ['Quick Learner', 'Analytical Thinking', 'Organized'],
   },
-  { id: 'amoda-erandi', name: 'Amoda Erandi' },
-  { id: 'thisul-fernando', name: 'Thisul Fernando' },
+  {
+    id: 'daphne-williams',
+    name: 'Daphne Williams',
+    isPresenter: true,
+    strengths: ['Resilience', 'Creativity', 'Determination'],
+  },
+  {
+    id: 'sajid-sabreen',
+    name: 'Sajid Sabreen',
+    isPresenter: true,
+    // CEO-level leadership, without saying "CEO" — per Sajid.
+    strengths: ['Visionary Leadership', 'Strategic Decision-Making', 'Empowering Teams'],
+  },
+
+  // ── Team (non-presenters) ── shown in "The Team" deck. Add `title` to show a
+  //    job title on the card; left blank for now pending real titles.
+  { id: 'arib-razmi', name: 'Arib Razmi', title: '' },
+  { id: 'chathuni-anahauda', name: 'Chathuni Anahauda', title: '' }, // verify
+  { id: 'chamodini-sepalika', name: 'Chamodini Sepalika', title: '' },
+  { id: 'riza-lahiba', name: 'Riza Lahiba', title: '' }, // not presenting — team member only
+  { id: 'hiruni-piyumika', name: 'Hiruni Piyumika', title: '' },
+  { id: 'nadarajah-thamilchelvi', name: 'Nadarajah Thamilchelvi', title: '' },
+  { id: 'amoda-erandi', name: 'Amoda Erandi', title: '' },
+  { id: 'thisul-fernando', name: 'Thisul Fernando', title: '' },
 ]

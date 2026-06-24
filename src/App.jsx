@@ -4,6 +4,7 @@ import { useNavStack } from './hooks/useNavStack.js'
 import { screenVariants, screenTransition } from './screens/screenVariants.js'
 import Landing from './screens/Landing.jsx'
 import Carousel from './screens/Carousel.jsx'
+import MeshBackground from './components/MeshBackground.jsx'
 
 export default function App() {
   const { current, depth, direction, push, back } = useNavStack({ name: 'landing' })
@@ -35,10 +36,14 @@ export default function App() {
 
   return (
     <MotionConfig reducedMotion="user">
-      {/* Neutral backdrop keeps desktop from looking broken; on phones the app
-          column goes full-bleed and the backdrop is never seen. */}
-      <div className="app-backdrop flex min-h-dvh w-full items-stretch justify-center sm:items-center sm:py-6">
-        <div className="relative h-dvh w-full overflow-hidden bg-paper sm:h-[min(900px,calc(100dvh-3rem))] sm:max-w-[480px] sm:rounded-[2.2rem] sm:shadow-[0_40px_80px_-30px_rgba(27,23,20,0.5)] sm:ring-1 sm:ring-black/5">
+      {/* Layer 1: the mesh fills the ENTIRE viewport so big screens don't look
+          like a tall phone on a white wall. The content column floats on top. */}
+      <MeshBackground />
+
+      <div className="relative z-10 flex min-h-dvh w-full justify-center">
+        {/* Transparent column — caps at 520px on desktop, full-bleed on phones.
+            The mesh shows through every gap between glass surfaces. */}
+        <div className="relative h-dvh w-full overflow-hidden sm:max-w-[520px]">
           <AnimatePresence custom={direction} initial={false}>
             <motion.div
               key={current.uid}
